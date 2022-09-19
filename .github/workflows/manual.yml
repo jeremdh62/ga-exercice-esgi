@@ -3,9 +3,10 @@ on:
 
 jobs:
   print-event:
-    runs-on: ubuntu-latest
-
+    runs-on: [ubuntu-latest, macos-latest]
     steps:
+      - with:
+        node-version: [12, 14, 16]
       - name: Print the event that triggered this workflow
         run: |
           echo ${{ github.event_name }}
